@@ -1,0 +1,5 @@
+#!/bin/bash
+
+g++ -c -std=c++0x roxon.cpp rox2d.cpp 
+
+exit 0

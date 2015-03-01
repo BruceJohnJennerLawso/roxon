@@ -1,0 +1,6 @@
+#!/bin/bash
+
+g++ rox2d.o roxon.o -lBox2D -lsfml-graphics -lsfml-system -lsfml-window -o rox
+#! bingo!
+
+exit 0
