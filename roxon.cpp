@@ -9,6 +9,10 @@
 //#include "Source.cpp"
 #include "roxon.hpp"
 
+// roxonBox ////////////////////////////////////////////////////////////////////
+// wrapper for a box in box 2d /////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 roxonBox::roxonBox()
 {
 }
@@ -50,6 +54,10 @@ void roxonBox::setImage(const sf::Vector2u windowSize)
 	// stick to clockwise positive as a convention...
 }
 
+roxonBox * roxonBox::getRoxonBoxPointer()
+{	return this;
+}
+
 roxonBox::~roxonBox()
 {	//delete body;
 	// this... umm, we will have to see what effect this has on the simulation
@@ -57,6 +65,15 @@ roxonBox::~roxonBox()
 
 	// fine, we'll just leak memory then
 	// see if I care
+}
+
+void createRoxonBox(sf::Vector2f initialPosition, b2World &world, float width, float height, float density, float friction, sf::Color boxColor, std::vector<roxonBox*> &boxList)
+{	roxonBox * newRoxonBoxon = new roxonBox(initialPosition, world, width, height, density, friction, boxColor);
+	boxList.insert(boxList.end(), newRoxonBoxon);
+}
+
+void createRoxonBox(roxonBox * new_this, std::vector<roxonBox*> &boxList)
+{	boxList.insert(boxList.end(), new_this);
 }
 
 
